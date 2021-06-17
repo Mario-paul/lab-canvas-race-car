@@ -2,7 +2,7 @@ const canvas = document.querySelector("canvas");
 
 const ctx = canvas.getContext("2d");
 
-class Road {
+class RenderImage {
   constructor(img, x, y, w, h) {
     this.x = x;
     this.y = y;
@@ -67,12 +67,12 @@ class Road {
 //Create roadImg and road object
 let roadImg = new Image();
 roadImg.src = "../images/road.png";
-let road = new Road(roadImg, 0, 0, canvas.width, canvas.height);
+let road = new RenderImage(roadImg, 0, 0, canvas.width, canvas.height);
 
 //Create carImg and car object
 let carImg = new Image();
 carImg.src = "../images/car.png";
-let car = new Road(carImg, canvas.width / 2, canvas.height - 319, 63, 127); //2.5 times smaller than original PNG file
+let car = new RenderImage(carImg, canvas.width / 2 - 28, canvas.height - 130, 52, 105); //3 times smaller than original PNG file. original w 158px h 319px
 
 function animate() {
   //Game engine, Flip book
