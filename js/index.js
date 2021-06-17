@@ -64,9 +64,15 @@ class Road {
 //   }
 // }
 
-let img = new Image();
-img.src = "../images/road.png";
-let road = new Road(img, 0, 0, canvas.width, canvas.height);
+//Create roadImg and road object
+let roadImg = new Image();
+roadImg.src = "../images/road.png";
+let road = new Road(roadImg, 0, 0, canvas.width, canvas.height);
+
+//Create carImg and car object
+let carImg = new Image();
+carImg.src = "../images/car.png";
+let car = new Road(carImg, canvas.width / 2, canvas.height - 319, 63, 127); //2.5 times smaller than original PNG file
 
 function animate() {
   //Game engine, Flip book
@@ -79,6 +85,9 @@ function animate() {
   //Road
   road.draw();
 
+  //Car
+  car.draw();
+
   //Loop through array and draw each obstacle one at a time
   //   for (let obs of obstacles) {
   //     obs.move()
@@ -89,12 +98,12 @@ function animate() {
 //Start game
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
-    console.log('Start button clicked!')
+    console.log("Start button clicked!");
     startGame();
   };
 
   function startGame() {
-    console.log('startGame() function called!')
+    console.log("startGame() function called!");
     animate();
   }
 };
